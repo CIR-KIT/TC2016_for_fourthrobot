@@ -5,10 +5,7 @@
   <!-- prameters -->
   <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'"/>
 
-
-  <node name="gmapping" pkg="gmapping" type="slam_gmapping">
-  	<remap from="scan" to="base_scan"/>
-  </node>
+  <node name="gmapping" pkg="gmapping" args="scan:=base_scan" type="slam_gmapping"/>
   
   <node name="playbag" pkg="rosbag" type="play"
 		args="--clock $(arg bag_filename)" />
