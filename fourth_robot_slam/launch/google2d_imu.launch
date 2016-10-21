@@ -26,12 +26,12 @@
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find fourth_robot_slam)/config
-          -configuration_basename fourth_robot_2d_odom.lua"
+          -configuration_directory $(find fourth_robot_slam)/launch/test
+          -configuration_basename fourth_robot_2d_imu.lua"
       output="screen">
-    <remap from="scan" to="/base_scan"/>
-	<remap from="imu" to="/imu/data_raw"/>
-
+    <remap from="scan" to="/base_scan" />
+	<remap from="imu" to="/imu/data_raw" />
+	<remap from="odom" to="/odom"/>
   </node>
   
   <node name="playbag" pkg="rosbag" type="play"

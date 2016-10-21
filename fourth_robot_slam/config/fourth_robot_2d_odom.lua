@@ -18,26 +18,27 @@ options = {
   map_builder = MAP_BUILDER,
   sensor_bridge = {
     horizontal_laser_min_range = 0.,
-    horizontal_laser_max_range = 60.,
+    horizontal_laser_max_range = 50.,
     horizontal_laser_missing_echo_ray_length = 5.,
     constant_odometry_translational_variance = 0.,
     constant_odometry_rotational_variance = 0.,
   },
   map_frame = "map",
-  tracking_frame = "imu_link",
-  published_frame = "base_link",
+  tracking_frame = "lrf_link",
+  published_frame = "base_footprint",
   odom_frame = "odom",
   provide_odom_frame = true,
-  use_odometry_data = false,
+  use_odometry_data = true,
   use_horizontal_laser = true,
   use_horizontal_multi_echo_laser = false,
   num_lasers_3d = 0,
-  lookup_transform_timeout_sec = 1.0,
+  lookup_transform_timeout_sec = 3.0,
   submap_publish_period_sec = 0.3,
   pose_publish_period_sec = 4e-2,
 }
+
 MAP_BUILDER.use_trajectory_builder_2d = true
-TRAJECTORY_BUILDER_2D.use_imu_data = true
+TRAJECTORY_BUILDER_2D.use_imu_data = false
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.1)
 

@@ -28,7 +28,7 @@ options = {
   published_frame = "base_footprint",
   odom_frame = "odom",
   provide_odom_frame = true,
-  use_odometry_data = true,
+  use_odometry_data = false,
   use_horizontal_laser = true,
   use_horizontal_multi_echo_laser = false,
   num_lasers_3d = 0,
@@ -38,7 +38,7 @@ options = {
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
-TRAJECTORY_BUILDER_2D.use_imu_data = true
+TRAJECTORY_BUILDER_2D.use_imu_data = false
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.1)
 
