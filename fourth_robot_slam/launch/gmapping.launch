@@ -5,6 +5,9 @@
   <!-- prameters -->
   <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'"/>
 
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+		type="robot_state_publisher" />
+
   <node name="gmapping" pkg="gmapping" args="scan:=base_scan" type="slam_gmapping"/>
   
   <node name="playbag" pkg="rosbag" type="play"
