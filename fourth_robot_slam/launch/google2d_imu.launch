@@ -26,7 +26,7 @@
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find fourth_robot_slam)/launch/test
+          -configuration_directory $(find fourth_robot_slam)/config
           -configuration_basename fourth_robot_2d_imu.lua"
       output="screen">
     <remap from="scan" to="/base_scan" />
@@ -36,6 +36,6 @@
   
   <node name="playbag" pkg="rosbag" type="play"
 		args="--clock $(arg bag_filename)" />
-  <!-- <node name="rviz" pkg="rviz" type="rviz" required="true" -->
-  <!-- 		args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+  		args="-d $(find fourth_robot_slam)/config/rviz/google2d.rviz" />
 </launch>
