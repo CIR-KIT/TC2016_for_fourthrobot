@@ -18,7 +18,7 @@ options = {
   map_builder = MAP_BUILDER,
   sensor_bridge = {
     horizontal_laser_min_range = 0.,
-    horizontal_laser_max_range = 50.,
+    horizontal_laser_max_range = 60.,
     horizontal_laser_missing_echo_ray_length = 5.,
     constant_odometry_translational_variance = 0.,
     constant_odometry_rotational_variance = 0.,
@@ -32,14 +32,17 @@ options = {
   use_horizontal_laser = true,
   use_horizontal_multi_echo_laser = false,
   num_lasers_3d = 0,
-  lookup_transform_timeout_sec = 3.0,
+  lookup_transform_timeout_sec = 0.2,
   submap_publish_period_sec = 0.3,
-  pose_publish_period_sec = 4e-2,
+  pose_publish_period_sec = 5e-3,
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
 TRAJECTORY_BUILDER_2D.use_imu_data = true
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 2.0
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(20.)
+TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters = 0.1
 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.1)
 
 return options
